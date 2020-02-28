@@ -1,0 +1,40 @@
+# database connection
+spring:
+  data:
+    mongodb.database: kinderspiel
+  # json configuration
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+      INDENT_OUTPUT: true
+    default-property-inclusion: NON_NULL
+# email configuration
+#  mail:
+#    host: localhost
+#    username: user
+#    password: ''
+#    port: 587
+#    properties:
+#      mail:
+#        debug: false
+#        smtp:
+#          debug: false
+#          auth: true
+#          starttls: true
+#    test-connection: false
+# auth configuration
+auth:
+  jwt:
+    secret: 'T0tQdXhbdXlxZWRiR2RNTV1keHJMd1NQR2FjaW5kZ1JZb3hUYkpPWWFZR1hmR114bnNvcmhfR0RPRE1PY1hMdQ=='
+
+asset:
+  api:
+    batch: false
+  lqip:
+    enabled: true
+    maxWidth: 30
+    maxHeight: 30
+
+logging:
+  level:
+    root: INFO
