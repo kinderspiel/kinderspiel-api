@@ -5,21 +5,29 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@Document(collection = "project")
+@Document(collection = "card")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProjectEntity implements Serializable {
+public class CardEntity implements Serializable {
 
     @Id
     private String id;
 
+    @Indexed
+    @NotNull
+    private String projectId;
+
     private String name;
 
     private String description;
+
+    private Integer priority;
 }

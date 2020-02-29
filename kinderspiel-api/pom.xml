@@ -29,6 +29,57 @@
             <artifactId>commons-asset-api</artifactId>
             <version>${commons-asset.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+        </dependency>
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>cz.habarta.typescript-generator</groupId>
+                <artifactId>typescript-generator-maven-plugin</artifactId>
+                <version>2.14.505</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jsonLibrary>jackson2</jsonLibrary>
+                    <classPatterns>
+                        <classPattern>co.kinderspiel.**</classPattern>
+                    </classPatterns>
+                    <excludeClassPatterns>
+                        <excludeClassPattern>**Builder</excludeClassPattern>
+                        <excludeClassPattern>**Deserializer</excludeClassPattern>
+                        <excludeClassPattern>**Serializer</excludeClassPattern>
+                        <excludeClassPattern>**Exception</excludeClassPattern>
+                        <excludeClassPattern>**Visitor</excludeClassPattern>
+                    </excludeClassPatterns>
+                    <excludeClasses>
+                        <excludeClass>java.io.Serializable</excludeClass>
+                        <excludeClass>java.lang.Iterable</excludeClass>
+                    </excludeClasses>
+                    <customTypeMappings>
+                        <customTypeMapping>java.net.URL:string</customTypeMapping>
+                        <customTypeMapping>java.time.LocalDate:string</customTypeMapping>
+                        <customTypeMapping>io.rocketbase.commons.translation.Translation:Record&lt;string, string>
+                        </customTypeMapping>
+                    </customTypeMappings>
+                    <outputKind>module</outputKind>
+                    <noEslintDisable>true</noEslintDisable>
+                    <noTslintDisable>true</noTslintDisable>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

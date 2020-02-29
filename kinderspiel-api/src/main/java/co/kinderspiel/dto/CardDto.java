@@ -12,12 +12,17 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProjectDto extends RepresentationModel<ProjectDto> implements Serializable {
+public class CardDto extends RepresentationModel<CardDto> implements Serializable {
 
     private String id;
+
+    private String projectId;
+
+    private String columnId;
 
     private String name;
 
     private String description;
 
+    private Integer priority;
 }

@@ -5,8 +5,6 @@ import co.kinderspiel.dto.ProjectDto;
 import co.kinderspiel.model.ProjectEntity;
 import org.mapstruct.*;
 
-import java.util.List;
-
 @Mapper(config = CentralConfig.class)
 public interface ProjectConverter extends EntityReadWriteConverter<ProjectEntity, ProjectDto, ProjectDto> {
 
